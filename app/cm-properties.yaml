@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  application.properties: |+
+    # Porta da aplicação (default é 8080)
+    server.port=8080
+
+    # Habilita logs no console
+    logging.level.root=INFO
+
+    # Define o nome da aplicação (aparece nos logs)
+    spring.application.name=springboot-app
+
+kind: ConfigMap
+metadata:
+  name: properties
+  labels:
+    app: webapp    

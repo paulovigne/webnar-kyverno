@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webapp
+  name: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - image: ghcr.io/paulovigne/webapp-java:main
+          imagePullPolicy: Always
+          name: webapp
+          envFrom:
+          - configMapRef:
+              name: env-vars
+          volumeMounts:
+          - mountPath: /app/application.properties
+            subPath: application.properties
+            name: properties
+          - mountPath: /tmp
+            name: tmp
+      volumes:
+      - name: properties
+        configMap:
+          name: properties
+      - name: tmp
+        emptyDir: {}

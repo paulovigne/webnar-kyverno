@@ -1,0 +1,5 @@
+resources:
+  - add-network-policy/add-network-policy.yaml
+  - add-networkpolicy-dns/add-networkpolicy-dns.yaml
+  - add-ns-quota/add-ns-quota.yaml
+  - sync-image-pull-secret/sync-image-pull-secret.yaml

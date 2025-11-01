@@ -1,0 +1,34 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-resource-requests-limits
+spec:
+  validationFailureAction: Audit
+  background: false
+  rules:
+    - name: validate-resources
+      match:
+        resources:
+          kinds: ["Pod"]
+          namespaceSelector:  # Define o escopo principal
+            matchExpressions:
+              - {key: kubernetes.io/metadata.name, operator: Exists}  # Qualquer namespace
+      validate:
+        message: "All containers must have CPU and memory requests and limits defined"
+        pattern:
+          spec:
+            containers:
+            - name: "*"
+              resources:
+                requests:
+                  cpu: "?*"
+                  memory: "?*"
+                limits:
+                  cpu: "?*"
+                  memory: "?*"
+      exclude:
+        any:
+          - resources:
+              namespaceSelector:
+                matchLabels:
+                  kyverno-policy-exempted: "true"                  

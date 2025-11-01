@@ -1,0 +1,18 @@
+resources:
+  - disallow-default-namespace/disallow-default-namespace.yaml
+  - disallow-latest-tag/disallow-latest-tag.yaml
+  - require-probes/require-probes.yaml
+  - require-resource-requests-limits/require-resource-requests-limits.yaml
+  - restrict-automount-sa-token/restrict-automount-sa-token.yaml
+  - restrict-loadbalancer/restrict-loadbalancer.yaml
+  - restrict-node-port/restrict-node-port.yaml
+  - add-block-blacklisted-images/add-block-blacklisted-images.yaml
+  - require-pod-requests-limits/require-pod-requests-limits.yaml
+  - restrict-image-registries/restrict-image-registries.yaml  
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/validationFailureAction
+        value: Enforce
+    target:
+      kind: ClusterPolicy

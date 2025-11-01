@@ -1,0 +1,5 @@
+resources:
+  - mutate
+  - generate
+  - validate
+  - pod-security

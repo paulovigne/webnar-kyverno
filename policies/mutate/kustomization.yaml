@@ -1,0 +1,5 @@
+resources:
+  - add-default-securitycontext/add-default-securitycontext.yaml
+  - always-pull-images/always-pull-images.yaml
+  - disable-automountserviceaccounttoken/disable-automountserviceaccounttoken.yaml
+  - remove-serviceaccount-token/remove-serviceaccount-token.yaml

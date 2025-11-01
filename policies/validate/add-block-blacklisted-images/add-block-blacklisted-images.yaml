@@ -1,0 +1,37 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: block-blacklisted-images
+  annotations:
+    policies.kyverno.io/title: Blocked blacklisted images
+    policies.kyverno.io/category: Other
+    policies.kyverno.io/severity: medium
+    kyverno.io/kyverno-version: 1.9.0
+    kyverno.io/kubernetes-version: "1.24"
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/description: >-
+      In addition to restricting the images, across any container type, come from the designated list.
+spec:
+  validationFailureAction: Audit
+  background: false
+  rules:
+    - name: block-blacklisted-images
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      validate:
+        message: >-
+          The specific images were blocked by security reasons.
+        deny:
+          conditions:
+            all:
+              - key: "{{ images.[containers, initContainers, ephemeralContainers][].*.name[] }}"
+                operator: AnyIn
+                value:
+                  - mysql
+                  - postgres
+                  - mongo
+                  - maria
+                  - neo4j

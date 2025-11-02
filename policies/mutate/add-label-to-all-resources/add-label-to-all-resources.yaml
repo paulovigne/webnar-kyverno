@@ -9,7 +9,11 @@ spec:
         any:
         - resources:
             kinds:
-              - "*"
+              - Pod
+              - ConfigMap
+              - Secret
+              - Service
+              - Ingress              
       mutate:
         patchStrategicMerge:
           metadata:

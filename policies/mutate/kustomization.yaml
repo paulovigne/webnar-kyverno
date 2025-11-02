@@ -6,3 +6,4 @@ resources:
   - always-pull-images/always-pull-images.yaml
   - disable-automountserviceaccounttoken/disable-automountserviceaccounttoken.yaml
   - remove-serviceaccount-token/remove-serviceaccount-token.yaml
+  - add-label-to-all-resources/add-label-to-all-resources.yaml

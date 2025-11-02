@@ -6,8 +6,8 @@ resources:
   - disallow-latest-tag/disallow-latest-tag.yaml
   - require-probes/require-probes.yaml
   - require-resource-requests-limits/require-resource-requests-limits.yaml
-  - restrict-loadbalancer/restrict-loadbalancer.yaml
-  - restrict-node-port/restrict-node-port.yaml
+  #- restrict-loadbalancer/restrict-loadbalancer.yaml
+  #- restrict-node-port/restrict-node-port.yaml
   - add-block-blacklisted-images/add-block-blacklisted-images.yaml
   - require-pod-requests-limits/require-pod-requests-limits.yaml
   - restrict-image-registries/restrict-image-registries.yaml  

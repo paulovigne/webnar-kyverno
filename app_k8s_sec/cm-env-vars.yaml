@@ -4,5 +4,6 @@ data:
 kind: ConfigMap
 metadata:
   name: env-vars
+  namespace: webapp
   labels:
     app: webapp    

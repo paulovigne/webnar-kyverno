@@ -1,0 +1,17 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: add-label-webinar-kyverno
+spec:
+  rules:
+    - name: add-label-to-all-resources
+      match:
+        any:
+        - resources:
+            kinds:
+              - "*"
+      mutate:
+        patchStrategicMerge:
+          metadata:
+            labels:
+              created-to: "webinar-kyverno"

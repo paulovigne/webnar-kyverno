@@ -4,6 +4,7 @@ metadata:
   labels:
     app: webapp
   name: webapp
+  namespace: webapp
 spec:
   ports:
   - port: 8080

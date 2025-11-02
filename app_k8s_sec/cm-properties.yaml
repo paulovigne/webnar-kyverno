@@ -13,5 +13,6 @@ data:
 kind: ConfigMap
 metadata:
   name: properties
+  namespace: webapp
   labels:
     app: webapp    

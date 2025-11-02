@@ -2,6 +2,8 @@ apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
   name: disallow-default-namespace
+  labels:
+    kyverno-policy: "true"
   annotations:
     pod-policies.kyverno.io/autogen-controllers: none
     policies.kyverno.io/title: Disallow Default Namespace

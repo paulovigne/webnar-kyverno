@@ -2,6 +2,8 @@ apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
   name: disallow-host-ports
+  labels:
+    kyverno-policy: "true"
   annotations:
     policies.kyverno.io/title: Disallow hostPorts
     policies.kyverno.io/category: Pod Security Standards (Baseline)

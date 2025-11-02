@@ -2,6 +2,8 @@ apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
   name: require-resource-requests-limits
+  labels:
+    kyverno-policy: "true"
 spec:
   validationFailureAction: Audit
   background: false

@@ -2,6 +2,8 @@ apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
   name: require-run-as-non-root-user
+  labels:
+    kyverno-policy: "true"
   annotations:
     policies.kyverno.io/title: Require Run As Non-Root User
     policies.kyverno.io/category: Pod Security Standards (Restricted)

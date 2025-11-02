@@ -2,6 +2,8 @@ apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
   name: add-ns-quota
+  labels:
+    kyverno-policy: "generate"
   annotations:
     policies.kyverno.io/title: Add Quota
     policies.kyverno.io/category: Multi-Tenancy, EKS Best Practices

@@ -1,5 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
 resources:
-  - mutate
-  - generate
-  - validate
-  - pod-security
+- mutate
+#- generate
+- validate
+- pod-security
+
+patches:
+  - path: patches/exclude-namespaces.yaml
+    target:
+      kind: ClusterPolicy
+      labelSelector: kyverno-policy=true

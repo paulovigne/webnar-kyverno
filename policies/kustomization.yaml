@@ -7,8 +7,8 @@ resources:
 - validate
 - pod-security
 
-patches:
-  - path: patches/exclude-namespaces.yaml
-    target:
-      kind: ClusterPolicy
-      labelSelector: kyverno-policy=true
+#patches:
+#  - path: patches/exclude-namespaces.yaml
+#    target:
+#      kind: ClusterPolicy
+#      labelSelector: kyverno-policy=true

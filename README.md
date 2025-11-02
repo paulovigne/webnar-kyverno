@@ -176,18 +176,5 @@ kustomize build policies/ | kyverno apply -t --resources app_k8s -
 - https://kyverno.io/docs/exceptions/
 - https://github.com/kyverno/policies/tree/main
 - https://kyverno.io/docs/kyverno-cli/install/
-
----
-
-# 📁 Estrutura Sugerida do Repositório
-
-```
-.
-├── images/
-│   ├── kyverno-architecture.png
-│   └── kubernetes-admission-controllers.png
-├── policies/
-│   └── ...
-├── kyverno-values.yaml
-└── README.md
-```
+- https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/
+- https://www.sysdig.com/blog/kubernetes-admission-controllers

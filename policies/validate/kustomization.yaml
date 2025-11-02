@@ -3,7 +3,6 @@ resources:
   - disallow-latest-tag/disallow-latest-tag.yaml
   - require-probes/require-probes.yaml
   - require-resource-requests-limits/require-resource-requests-limits.yaml
-  - restrict-automount-sa-token/restrict-automount-sa-token.yaml
   - restrict-loadbalancer/restrict-loadbalancer.yaml
   - restrict-node-port/restrict-node-port.yaml
   - add-block-blacklisted-images/add-block-blacklisted-images.yaml

@@ -15,6 +15,11 @@ spec:
   background: true  # Required for existing namespaces
   rules:
     - name: add-netpol-dns
+      match:
+        any:
+          - resources:
+              kinds:
+                - Namespace    
       generate:
         generateExisting: true
         apiVersion: networking.k8s.io/v1

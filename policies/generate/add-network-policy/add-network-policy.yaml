@@ -13,6 +13,11 @@ spec:
   background: true  # Required for existing namespaces
   rules:
     - name: default-deny
+      match:
+        any:
+          - resources:
+              kinds:
+                - Namespace    
       generate:
         generateExisting: true
         apiVersion: networking.k8s.io/v1

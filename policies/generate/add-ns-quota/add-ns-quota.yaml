@@ -13,6 +13,11 @@ spec:
   background: true  # Required for existing namespaces
   rules:
     - name: generate-resourcequota
+      match:
+        any:
+          - resources:
+              kinds:
+                - Namespace    
       generate:
         generateExisting: true
         apiVersion: v1

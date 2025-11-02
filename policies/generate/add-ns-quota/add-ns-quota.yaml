@@ -33,6 +33,11 @@ spec:
               limits.cpu: '4'
               limits.memory: '16Gi'
     - name: generate-limitrange
+      match:
+        any:
+          - resources:
+              kinds:
+                - Namespace    
       generate:
         generateExisting: true
         apiVersion: v1

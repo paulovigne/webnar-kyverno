@@ -7,8 +7,8 @@ spec:
   exceptions:
   - policyName: restrict-image-registries
     ruleNames:
-    - restrict-registries
-    - autogen-restrict-registries
+    - validate-registries
+    - autogen-validate-registries
   match:
     any:
     - resources:

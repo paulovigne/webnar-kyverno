@@ -1,0 +1,25 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: nodegroup-goapp1
+  labels:
+    kyverno-policy: "true"
+spec:
+  rules:
+    - name: add-toleration-and-node-selector
+      match:
+        resources:
+          kinds:
+            - Pod
+          namespaces:
+            - goapp1
+      mutate:
+        patchStrategicMerge:
+          spec:
+            tolerations:
+              - key: "dtp.nodegroup"
+                operator: "Equal"
+                value: "goapp1"
+                effect: "NoSchedule"
+            nodeSelector:
+              dtp.nodegroup: "goapp1"

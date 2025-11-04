@@ -82,8 +82,8 @@ helm upgrade --install kyverno kyverno/kyverno \
 ```yaml
 features:
   policyExceptions:
-    enable: true
-    namespace: "*"
+    enabled: true
+    namespace: kyverno
 
 admissionController:
   replicas: 3

@@ -1,0 +1,27 @@
+apiVersion: kyverno.io/v2
+kind: PolicyException
+metadata:
+  name: allow-all-registries
+  namespace: kyverno
+spec:
+  exceptions:
+  - policyName: restrict-image-registries
+    ruleNames:
+    - restrict-registries
+    - autogen-restrict-registries
+
+  match:
+    any:
+    - resources:
+        kinds:
+        - Pod
+        - Deployment
+        - StatefulSet
+        - DaemonSet
+        - Job
+        - CronJob
+        - ReplicaSet
+        namespaces:
+        - teste
+        #name:
+        #- teste-pod

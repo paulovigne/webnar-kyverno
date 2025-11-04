@@ -1,0 +1,114 @@
+apiVersion: kyverno.io/v2
+kind: PolicyException
+metadata:
+  name: exempted-namespaces
+  namespace: kyverno
+spec:
+  exceptions:
+  - policyName: add-block-blacklisted-images
+    ruleNames: ["*"]
+  - policyName: add-default-securitycontext
+    ruleNames: ["*"]
+  - policyName: add-label-webinar-kyverno
+    ruleNames: ["*"]
+  - policyName: always-pull-images
+    ruleNames: ["*"]
+  - policyName: disable-automountserviceaccounttoken
+    ruleNames: ["*"]
+  - policyName: disallow-capabilities
+    ruleNames: ["*"]
+  - policyName: disallow-capabilities-strict
+    ruleNames: ["*"]
+  - policyName: disallow-default-namespace
+    ruleNames: ["*"]
+  - policyName: disallow-host-namespaces
+    ruleNames: ["*"]
+  - policyName: disallow-host-path
+    ruleNames: ["*"]
+  - policyName: disallow-host-ports
+    ruleNames: ["*"]
+  - policyName: disallow-host-process
+    ruleNames: ["*"]
+  - policyName: disallow-latest-tag
+    ruleNames: ["*"]
+  - policyName: disallow-privilege-escalation
+    ruleNames: ["*"]
+  - policyName: disallow-privileged-containers
+    ruleNames: ["*"]
+  - policyName: disallow-proc-mount
+    ruleNames: ["*"]
+  - policyName: disallow-selinux
+    ruleNames: ["*"]
+  - policyName: remove-serviceaccount-token
+    ruleNames: ["*"]
+  - policyName: require-pod-requests-limits
+    ruleNames: ["*"]
+  - policyName: require-probes
+    ruleNames: ["*"]
+  - policyName: require-resource-requests-limits
+    ruleNames: ["*"]
+  - policyName: require-run-as-non-root-user
+    ruleNames: ["*"]
+  - policyName: require-run-as-nonroot
+    ruleNames: ["*"]
+  - policyName: restrict-image-registries
+    ruleNames: ["*"]
+  - policyName: restrict-sysctls
+    ruleNames: ["*"]
+  - policyName: restrict-volume-types
+    ruleNames: ["*"]
+
+  match:
+    any:
+    - resources:
+        kinds:
+        - Pod
+        - Deployment
+        - StatefulSet
+        - DaemonSet
+        - Job
+        - CronJob
+        - ReplicaSet
+        - Service
+        - Ingress
+        - ServiceAccount
+        namespaces:
+        - kyverno
+        - calico-apiserver
+        - calico-system
+        - cattle-alerting
+        - cattle-csp-adapter-system
+        - cattle-elemental-system
+        - cattle-epinio-system
+        - cattle-externalip-system
+        - cattle-fleet-local-system
+        - cattle-fleet-system
+        - cattle-gatekeeper-system
+        - cattle-global-data
+        - cattle-global-nt
+        - cattle-impersonation-system
+        - cattle-istio
+        - cattle-istio-system
+        - cattle-logging
+        - cattle-logging-system
+        - cattle-monitoring-system
+        - cattle-neuvector-system
+        - cattle-prometheus
+        - cattle-provisioning-capi-system
+        - cattle-resources-system
+        - cattle-sriov-system
+        - cattle-system
+        - cattle-ui-plugin-system
+        - cattle-windows-gmsa-system
+        - cert-manager
+        - cis-operator-system
+        - fleet-default
+        - ingress-nginx
+        - istio-system
+        - kube-node-lease
+        - kube-public
+        - kube-system
+        - longhorn-system
+        - rancher-alerting-drivers
+        - security-scan
+        - tigera-operator

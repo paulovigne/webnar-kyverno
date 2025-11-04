@@ -9,7 +9,6 @@ spec:
     ruleNames:
     - restrict-registries
     - autogen-restrict-registries
-
   match:
     any:
     - resources:
@@ -23,5 +22,5 @@ spec:
         - ReplicaSet
         namespaces:
         - teste
-        #name:
-        #- teste-pod
+        #names:
+        #- teste-pod*
